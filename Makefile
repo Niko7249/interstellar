@@ -1,6 +1,6 @@
 # default make file
-WP_DATA = ~/data/wordpress #define the path to the wordpress data
-DB_DATA = ~/data/mariadb #define the path to the mariadb data
+WP_DATA = ~/interstellar/wordpress #define the path to the wordpress data
+DB_DATA = ~/interstellar/mariadb #define the path to the mariadb data
 
 # default target
 all: up
@@ -28,6 +28,18 @@ start:
 # build the containers
 build:
 	docker compose -f ./src/docker-compose.yaml build
+
+exec_wp:
+	docker exec -it wordpress bash
+
+exec_db:
+	docker exec -it mariadb bash
+
+exec_nginx:
+	docker exec -it nginx bash
+
+status:
+	docker ps
 
 # clean the containers
 # stop all running containers and remove them.

@@ -51,14 +51,14 @@ volumes:
     name: mariadb
     driver: local
     driver_opts:
-      device: ~/data/mariadb
+      device: ~/interstellar/mariadb
       o : bind
       type : none
   wordpress:
     name: wordpress
     driver: local
     driver_opts:
-      device: ~/data/wordpress
+      device: ~/interstellar/wordpress
       o : bind
       type : none
 
