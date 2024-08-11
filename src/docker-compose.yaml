@@ -12,7 +12,7 @@ services:
     env_file :
       - .env
     networks :
-      - inception
+      - interstellar
     restart: always
 #nginx
   nginx:
@@ -28,7 +28,7 @@ services:
     env_file:
       - .env
     networks:
-      - inception
+      - interstellar
     restart: always
 #wordpress
   wordpress:
@@ -42,7 +42,7 @@ services:
     env_file :
       - .env
     networks:
-      - inception
+      - interstellar
     restart: always
 
 # the volumes part
@@ -64,5 +64,5 @@ volumes:
 
 # the networks part
 networks:
-  inception:
-    name: inception
+  interstellar:
+    name: interstellar
