@@ -1,4 +1,5 @@
 # default make file
+#DA CAMBIARRE I PATH DEI VOLUMI PER RISPETTARE SUBJECT
 WP_DATA = ~/interstellar/wordpress #define the path to the wordpress data
 DB_DATA = ~/interstellar/mariadb #define the path to the mariadb data
 
@@ -8,7 +9,8 @@ all: up
 # start the biulding process
 # create the wordpress and mariadb data directories.
 # start the containers in the background and leaves them running
-up: build
+up:
+	docker compose -f ./src/docker-compose.yaml build
 	@mkdir -p $(WP_DATA)
 	@mkdir -p $(DB_DATA)
 	docker compose -f ./src/docker-compose.yaml up -d
@@ -16,18 +18,6 @@ up: build
 # stop the containers
 down:
 	docker compose -f ./src/docker-compose.yaml down
-
-# stop the containers
-stop:
-	docker compose -f ./src/docker-compose.yaml stop
-
-# start the containers
-start:
-	docker compose -f ./src/docker-compose.yaml start
-
-# build the containers
-build:
-	docker compose -f ./src/docker-compose.yaml build
 
 exec_wp:
 	docker exec -it wordpress bash
@@ -38,8 +28,17 @@ exec_db:
 exec_nginx:
 	docker exec -it nginx bash
 
+vol_wp:
+	docker volume inspect wordpress
+
+vol_db:
+	docker volume inspect mariadb
+
 status:
 	docker ps
+
+status_all:
+	docker compose -f ./src/docker-compose.yaml ps
 
 # clean the containers
 # stop all running containers and remove them.

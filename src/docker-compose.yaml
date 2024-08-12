@@ -1,6 +1,19 @@
-#version: "3.8"
+volumes:
+  mariadb:
+    name: mariadb
+    driver: local
+    driver_opts:
+      device: ~/interstellar/mariadb
+      o : bind
+      type : none
+  wordpress:
+    name: wordpress
+    driver: local
+    driver_opts:
+      device: ~/interstellar/wordpress
+      o : bind
+      type : none
 
-# the services part
 services:
 #mariadb
   mariadb:
@@ -45,24 +58,6 @@ services:
       - interstellar
     restart: always
 
-# the volumes part
-volumes:
-  mariadb:
-    name: mariadb
-    driver: local
-    driver_opts:
-      device: ~/interstellar/mariadb
-      o : bind
-      type : none
-  wordpress:
-    name: wordpress
-    driver: local
-    driver_opts:
-      device: ~/interstellar/wordpress
-      o : bind
-      type : none
-
-# the networks part
 networks:
   interstellar:
     name: interstellar
