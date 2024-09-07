@@ -60,3 +60,20 @@ re: clean up
 # prune the containers: execute the clean target and remove all containers, images, volumes and networks from the system.
 prune: clean
 	@docker system prune -a --volumes -f
+
+help:
+	@echo "Available Commands:"
+	@echo "-------------------"
+	@echo "1.  all"
+	@echo "2.  up"
+	@echo "3.  down"
+	@echo "4.  execp_wp"
+	@echo "5.  exec_db"
+	@echo "6.  exec_nginx"
+	@echo "7.  vol_wp"
+	@echo "8.  vol_db"
+	@echo "9.  status"
+	@echo "10. status_all"
+	@echo "11. clean"
+	@echo "12. re"
+	@echo "13. prune"
