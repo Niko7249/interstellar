@@ -15,3 +15,11 @@ sudo nano /etc/hosts
 CREARE UN .GITIGNORE per ignorare il .env file, da capire come cazzo fare poi per pushare
 
 NON PUSHARE IL .ENV
+
+
+
+
+VEDERE I BRIDGE E CHIEDERE A PIETRONE SE SERVIVA O MENO QUELLA CONFIG.
+
+
+		listen 5921 ssl; # this the port that the server will listen on CAPIRE CCOME FARLO WORKARE
