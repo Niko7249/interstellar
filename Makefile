@@ -1,7 +1,5 @@
-# default make file
-#DA CAMBIARRE I PATH DEI VOLUMI PER RISPETTARE SUBJECT
-WP_DATA = ~/interstellar/wordpress #define the path to the wordpress data
-DB_DATA = ~/interstellar/mariadb #define the path to the mariadb data
+WP_DATA = ~/data/wordpress #define the path to the wordpress data
+DB_DATA = ~/data/mariadb #define the path to the mariadb data
 
 # default target
 all: up
@@ -10,14 +8,14 @@ all: up
 # create the wordpress and mariadb data directories.
 # start the containers in the background and leaves them running
 up:
-	docker compose -f ./src/docker-compose.yaml build
+	docker compose -f ./srcs/docker-compose.yaml build
 	@mkdir -p $(WP_DATA)
 	@mkdir -p $(DB_DATA)
-	docker compose -f ./src/docker-compose.yaml up -d
+	docker compose -f ./srcs/docker-compose.yaml up -d
 
 # stop the containers
 down:
-	docker compose -f ./src/docker-compose.yaml down
+	docker compose -f ./srcs/docker-compose.yaml down
 
 exec_wp:
 	docker exec -it wordpress bash
@@ -38,7 +36,7 @@ status:
 	docker ps
 
 status_all:
-	docker compose -f ./src/docker-compose.yaml ps
+	docker compose -f ./srcs/docker-compose.yaml ps
 
 # clean the containers
 # stop all running containers and remove them.
