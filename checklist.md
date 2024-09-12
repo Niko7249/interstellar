@@ -57,3 +57,29 @@ CHECKLIST CORRECTION SHEET INCEPTION
 - check the dockerfile and be sure there is no NGINX.
 - bla bla bla verify the same old shit my man.
 - Ensure that there is a Volume. To do so: Run the command 'docker volume ls' then 'docker volume inspect <volume name>'. Verify that the result in the standard output contains the path '/home/login/data/', where login is the login of the evaluated student.
+
+- ensure that you can add a comment as a normal user and that you can edit a page as an admin
+- also check that the changes remain consisten even after a make down and make up.
+
+
+* MARIADB
+
+
+    Ensure that there is a Dockerfile.
+    Ensure that there is no NGINX in the Dockerfile.
+    Using the 'docker compose ps' command, ensure that the container was created (using the flag '-p' is authorized if necessary).
+    Ensure that there is a Volume. To do so: Run the command 'docker volume ls' then 'docker volume inspect <volume name>'. Verify that the result in the standard output contains the path '/home/login/data/', where login is the login of the evaluated student.
+    The evaluated student must be able to explain you how to login into the database. Verify that the database is not empty. If any of the above points is not correct, the evaluation process ends now.
+
+
+make exec_db 
+
+mysql -u murphy_user -p
+insert murphy_user password :PPPPPPPP yoloADASDASDAS
+
+SHOW DATABASES;
+USE odissey;
+SHOW TABLES;
+SELECT * FROM <table_name>;
+
+
