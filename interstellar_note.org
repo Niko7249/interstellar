@@ -1,28 +1,5 @@
-* CHECKLIST
-
-
-* my life depends on this.
-
-
-README
-
-Edit /etc/hosts to insert the domain name into the local dns table for resolve it.
-
-
-sudo nano /etc/hosts
-
-127.0.0.1 ntamiano.42.fr
-
-
-
-CREARE UN .GITIGNORE per ignorare il .env file, da capire come cazzo fare poi per pushare
-
-NON PUSHARE IL .ENV
-
-
-
-
-VEDERE I BRIDGE E CHIEDERE A PIETRONE SE SERVIVA O MENO QUELLA CONFIG.
-
-
-		listen 5921 ssl; # this the port that the server will listen on CAPIRE CCOME FARLO WORKARE
+*DONE Checklist
+*TODO remove .env from github
+*DONE add the ip to the hosts table 
+"sudo nano /etc/hosts" 127.0.0.1 ntamiano.42.fr
+*TODO creare .gitignore
