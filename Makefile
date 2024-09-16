@@ -8,6 +8,7 @@ all: up
 # create the wordpress and mariadb data directories.
 # start the containers in the background and leaves them running
 up:
+	bash ./script_generate_env.sh
 	docker compose -f ./srcs/docker-compose.yaml build
 	@mkdir -p $(WP_DATA)
 	@mkdir -p $(DB_DATA)
@@ -51,6 +52,7 @@ clean:
 	@docker network rm $$(docker network ls -q) || true
 	@sudo rm -rf $(WP_DATA) || true
 	@sudo rm -rf $(DB_DATA) || true
+	@rm .env_testing
 
 # clean and start the containers
 re: clean up
