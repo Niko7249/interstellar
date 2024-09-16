@@ -9,10 +9,12 @@ all: up
 # start the containers in the background and leaves them running
 up:
 	bash ./script_generate_env.sh
+	@sleep 2
 	docker compose -f ./srcs/docker-compose.yaml build
 	@mkdir -p $(WP_DATA)
 	@mkdir -p $(DB_DATA)
 	docker compose -f ./srcs/docker-compose.yaml up -d
+	@echo "wait few seconds before loading the webpage"
 
 # stop the containers
 down:
@@ -52,7 +54,6 @@ clean:
 	@docker network rm $$(docker network ls -q) || true
 	@sudo rm -rf $(WP_DATA) || true
 	@sudo rm -rf $(DB_DATA) || true
-	@rm .env_testing
 
 # clean and start the containers
 re: clean up
@@ -60,6 +61,7 @@ re: clean up
 # prune the containers: execute the clean target and remove all containers, images, volumes and networks from the system.
 prune: clean
 	@docker system prune -a --volumes -f
+	@rm -f ./srcs/.env
 
 help:
 	@echo "Available Commands:"

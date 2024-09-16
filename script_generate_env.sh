@@ -1,9 +1,15 @@
 #!/bin/bash
 
+# Check if the .env file already exists
+if [ -f ./srcs/.env ]; then
+    echo ".env file already exists. Exiting script."
+    exit 0
+fi
+
 # Function to generate random strings
 generate_random_string() {
     local length=$1
-    tr -dc 'a-zA-Z0-9_!@#$%^&*()-+=~' < /dev/urandom | head -c "$length"
+    tr -dc 'a-zA-Z0-9_!' < /dev/urandom | head -c "$length"
 }
 
 # Array of names for random selection
@@ -16,7 +22,6 @@ NAMES=(
     "Matthew_McConaughey" "Nicole_Kidman" "Anne_Hathaway" "George_Clooney" "Will_Smith"
     "Julia_Roberts" "Brad_Pitt" "Angelina_Jolie" "Ryan_Gosling" "Emma_Watson"
     "Chris_Pratt" "Jason_Momoa" "Henry_Cavill" "Gal_Gadot" "Robert_Pattinson"
-    # Add more names as needed
 )
 
 # Function to pick a random name from the array
@@ -25,7 +30,7 @@ pick_random_name() {
 }
 
 # Create .env file and write variables
-cat <<EOL > .env_testing
+cat <<EOL > ./srcs/.env
 # ALL THESE ENV VARIABLES ARE FOR TESTING PURPOSES ONLY
 
 # MYSQL SETUP
